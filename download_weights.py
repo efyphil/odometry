@@ -10,7 +10,7 @@ if __name__ == '__main__':
     url = list()
     destination = list()
     
-    weights_dir = Path(os.path.realpath(__file__)).parent/'weights')
+    weights_dir = Path(os.path.realpath(__file__)).parent/'weights'
     weights_dir.mkdir()
 
     url.append('https://drive.google.com/uc?id=1mjb4ioDRH8ViGbui52stSUDwhkGrDXy8')
