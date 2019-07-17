@@ -1,0 +1,7 @@
+language: python
+python:
+  - "3.6"
+install:
+  - conda env create -f conda.yml
+script:
+  - python -m unittest discover -s tests
