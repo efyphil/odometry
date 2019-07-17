@@ -9,18 +9,21 @@ if __name__ == '__main__':
 
     url = list()
     destination = list()
+    
+    weights_dir = Path(os.path.realpath(__file__)).parent/'weights')
+    weights_dir.mkdir()
 
     url.append('https://drive.google.com/uc?id=1mjb4ioDRH8ViGbui52stSUDwhkGrDXy8')
-    destination.append(Path(os.path.realpath(__file__)).parent/'weights/struct2depth_model_kitti.tar.gz')
+    destination.append(weights_dir/'struct2depth_model_kitti.tar.gz')
 
     url.append(' https://drive.google.com/uc?id=11SzYIezaF8yaIVKAml7kPdqgncna2vj7')
-    destination.append(Path(os.path.realpath(__file__)).parent/'weights/pwcnet.ckpt-595000.data-00000-of-00001')
+    destination.append(weights_dir/'pwcnet.ckpt-595000.data-00000-of-00001')
 
     url.append(' https://drive.google.com/uc?id=1guw6rpVRsO9OfKnuKGGeUY0kpNfJf4yy')
-    destination.append(Path(os.path.realpath(__file__)).parent/'weights/pwcnet.ckpt-595000.index')
+    destination.append(weights_dir/'/pwcnet.ckpt-595000.index')
 
     url.append(' https://drive.google.com/uc?id=1w8DgWut4APWZpprGxPvCbvmg8sJZ11-u')
-    destination.append(Path(os.path.realpath(__file__)).parent/'weights/pwcnet.ckpt-595000.meta')
+    destination.append(weights_dir/'pwcnet.ckpt-595000.meta')
 
     for i in trange(len(url)):
         gdown.download(url[i], destination[i].as_posix(), quiet=False)
