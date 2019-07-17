@@ -199,8 +199,6 @@ dependencies:
   - zeromq=4.3.1=he6710b0_3
   - zlib=1.2.11=h7b6447c_3
   - zstd=1.3.7=h0b5b093_0
-  - pytorch=1.0.1=py3.6_cuda9.0.176_cudnn7.4.2_2
-  - torchvision=0.2.2=py_3
   - pip:
     - dask==1.2.2
     - docker==4.0.1
