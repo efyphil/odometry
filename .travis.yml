@@ -11,6 +11,8 @@ before_install:
   
 install:
   - conda env create -f conda.yml
+  - conda uninstall tensorflow-gpu
+  - conda install 'tensorflow=*=mkl*'
   - source activate odometry
   - python download_weights.py
   
