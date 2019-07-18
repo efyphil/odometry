@@ -137,7 +137,6 @@ dependencies:
   - libxml2=2.9.9=he19cac6_0
   - markdown=3.0.1=py36_0
   - markupsafe=1.1.1=py36h7b6447c_0
-  - matplotlib=3.0.3=py36h5429711_0
   - mistune=0.8.4=py36h7b6447c_0
   - mkl=2019.1=144
   - mkl_fft=1.0.10=py36ha843d7b_0
