@@ -16,13 +16,13 @@ if __name__ == '__main__':
     url.append('https://drive.google.com/uc?id=1mjb4ioDRH8ViGbui52stSUDwhkGrDXy8')
     destination.append(weights_dir/'struct2depth_model_kitti.tar.gz')
 
-    url.append(' https://drive.google.com/uc?id=11SzYIezaF8yaIVKAml7kPdqgncna2vj7')
+    url.append('https://drive.google.com/uc?id=11SzYIezaF8yaIVKAml7kPdqgncna2vj7')
     destination.append(weights_dir/'pwcnet.ckpt-595000.data-00000-of-00001')
 
-    url.append(' https://drive.google.com/uc?id=1guw6rpVRsO9OfKnuKGGeUY0kpNfJf4yy')
-    destination.append(weights_dir/'/pwcnet.ckpt-595000.index')
+    url.append('https://drive.google.com/uc?id=1guw6rpVRsO9OfKnuKGGeUY0kpNfJf4yy')
+    destination.append(weights_dir/'pwcnet.ckpt-595000.index')
 
-    url.append(' https://drive.google.com/uc?id=1w8DgWut4APWZpprGxPvCbvmg8sJZ11-u')
+    url.append('https://drive.google.com/uc?id=1w8DgWut4APWZpprGxPvCbvmg8sJZ11-u')
     destination.append(weights_dir/'pwcnet.ckpt-595000.meta')
 
     for i in trange(len(url)):
