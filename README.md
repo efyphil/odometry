@@ -14,7 +14,7 @@ Currently supported datasets:
 
 1. git clone --recursive https://github.com/vul-samsung/odometry
 2. conda env update -f conda.yml
-3. python download_weights.
+3. python download_weights.py
 
 # Preparing datasets:
 1. Download datasets from official websites
