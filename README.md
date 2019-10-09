@@ -1,9 +1,25 @@
 # odometry
 
-Add odometry directory to PYTHONPATH: export PYTHONPATH=PATH-TO-ODOMETRY:$PYTHONPATH
+This repository contains visual odometry baselines that you can evaluate on several datasets.
+Currently provided methods:
+-LS-VO
+-Resnet50
 
-For depth estimation download pretrained struct2depth weights from official site https://sites.google.com/view/struct2depth into weights directory
+Currently supported datasets:
+-KITTI
+-TUM
+-DISCOMAN
 
-For OF estimation download pretrained tfoptflow weights from repo https://github.com/philferriere/tfoptflow
+# Installation
 
-To dowload use git clone --recursive https://github.com/vul-samsung/odometry
+1. git clone --recursive https://github.com/vul-samsung/odometry
+2. conda env update -f conda.yml
+3. python download_weights.
+
+# Preparing datasets:
+1. Download datasets from official websites
+2. Prepare dataset for training with scriptsprepare_dataset.py
+3. Configure paths in env.py
+
+# Training
+Start training with scripts/train.py 
