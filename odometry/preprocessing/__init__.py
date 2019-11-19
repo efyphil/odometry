@@ -4,7 +4,7 @@ from .parsers import KITTIParser
 from .parsers import TUMParser
 
 from .estimators import Quaternion2EulerEstimator
-from .estimators import Struct2DepthEstimator
+#from .estimators import Struct2DepthEstimator
 from .estimators import Global2RelativeEstimator
 from .estimators import PWCNetEstimator
 

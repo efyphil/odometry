@@ -2,8 +2,8 @@ import copy
 
 from tensorflow.python.client import device_lib
 
-from submodules.tfoptflow.tfoptflow.model_pwcnet import _DEFAULT_PWCNET_TEST_OPTIONS
-from submodules.tfoptflow.tfoptflow.model_pwcnet import ModelPWCNet as pwc_net
+from submodule.tfoptflow.model_pwcnet import _DEFAULT_PWCNET_TEST_OPTIONS
+from submodule.tfoptflow.model_pwcnet import ModelPWCNet as pwc_net
 
 from odometry.preprocessing.estimators.network_estimator import NetworkEstimator
 from odometry.utils import resize_image

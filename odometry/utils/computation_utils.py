@@ -18,7 +18,7 @@ def limit_resources(allow_growth=True,
 
     os.environ["CUDA_VISIBLE_DEVICES"] = str(cuda_visible_devices)
 
-    import tensorflow as tf
+    import tensorflow.compat.v1 as tf
     from keras import backend as K
 
     config = tf.ConfigProto(

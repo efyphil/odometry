@@ -21,7 +21,7 @@ class PredictCallback(keras.callbacks.Callback):
         self.dataset = dataset
         self.predictions_dir = predictions_dir
         self.visuals_dir = visuals_dir
-
+        print(self.predictions_dir)
         self.period = period
         self.epoch_counter = 0
         self.best_loss = np.inf
@@ -40,7 +40,11 @@ class PredictCallback(keras.callbacks.Callback):
         return os.path.join(self.visuals_dir, prediction_id, subset, f'{trajectory_id}.html')
 
     def _create_prediction_filename(self, prediction_id, subset, trajectory_id):
+        
         os.makedirs(os.path.join(self.predictions_dir, prediction_id, subset), exist_ok=True)
+        print('sssssssssssssssssssss', trajectory_id)
+        print('wtf', self.predictions_dir, prediction_id, subset, f'{trajectory_id}.csv')
+        print('mda',os.path.join(self.predictions_dir, prediction_id, subset, f'{trajectory_id}.csv'))
         return os.path.join(self.predictions_dir, prediction_id, subset, f'{trajectory_id}.csv')
 
     @staticmethod
@@ -51,6 +55,7 @@ class PredictCallback(keras.callbacks.Callback):
         if not self.save_predictions:
             return
         file_name = self._create_prediction_filename(prediction_id, subset, trajectory_id)
+        #print('file_name',prediction_id, subset,trajectory_id )
         trajectory.to_dataframe().to_csv(file_name)
 
     def _maybe_visualize_trajectory(self, prediction_id, subset, trajectory_id, predicted_trajectory,
@@ -78,14 +83,16 @@ class PredictCallback(keras.callbacks.Callback):
 
         records = []
         for trajectory_id, indices in gt.groupby(by='trajectory_id').indices.items():
+            print('trajectory_id', trajectory_id)
+            print(os.path.basename(trajectory_id))
             gt_trajectory = self._create_trajectory(gt.iloc[indices])
             predicted_trajectory = self._create_trajectory(predictions.iloc[indices])
-            self._maybe_save_trajectory(prediction_id, subset, trajectory_id, predicted_trajectory)
+            self._maybe_save_trajectory(prediction_id, subset, os.path.basename(trajectory_id), predicted_trajectory)
 
             trajectory_metrics = calculate_metrics(gt_trajectory, predicted_trajectory)
             records.append(trajectory_metrics)
 
-            self._maybe_visualize_trajectory(prediction_id, subset, trajectory_id, predicted_trajectory,
+            self._maybe_visualize_trajectory(prediction_id, subset, os.path.basename(trajectory_id), predicted_trajectory,
                                              gt_trajectory, trajectory_metrics)
 
         total_metrics = {f'{subset}_{key}': value for key, value in average_metrics(records).items()}
@@ -100,8 +107,8 @@ class PredictCallback(keras.callbacks.Callback):
 
         for trajectory_id, indices in gt.groupby(by='trajectory_id').indices.items():
             predicted_trajectory = self._create_trajectory(predictions.iloc[indices])
-            self._maybe_save_trajectory(prediction_id, subset, trajectory_id, predicted_trajectory)
-            self._maybe_visualize_trajectory(prediction_id, subset, trajectory_id, predicted_trajectory)
+            self._maybe_save_trajectory(prediction_id, subset,os.path.basename(trajectory_id), predicted_trajectory)
+            self._maybe_visualize_trajectory(prediction_id, subset,os.path.basename(trajectory_id), predicted_trajectory)
 
     def _predict(self, generator, gt):
         model_output = self.model.predict_generator(generator, steps=len(generator))

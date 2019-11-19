@@ -9,7 +9,7 @@ from .ls_vo import construct_ls_vo_model
 from .ls_vo import construct_ls_vo_rt_model
 from .ls_vo import construct_ls_vo_rt_no_decoder_model
 
-from .flexible import construct_flexible_model
+from .flex import construct_flexible_model
 
 from .rigidity import construct_rigidity_model
 
